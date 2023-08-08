@@ -2,7 +2,7 @@
   "publisher": "winwin2011",
   "name": "quick-search",
   "displayName": "Quick Search",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@8.6.0",
   "description": "",
@@ -42,7 +42,7 @@
     "release": "bumpp && nr publish"
   },
   "contributes": {
-    "commands":[
+    "commands": [
       {
         "command": "quick-search.search",
         "title": "Quick Search"
