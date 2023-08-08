@@ -1,48 +1,35 @@
+import engines from 'search-engine-collection'
 import * as vscode from 'vscode'
-import * as icon from './icon'
+import { getDataUrl } from './icon'
 
 interface SearchProvider {
   icon?: string
   name: string
-  template: string
+  url: string
 }
-
-const searchProviders: SearchProvider[] = [
-  {
-    icon: icon.google,
-    name: 'Google',
-    template: 'https://www.google.com/search?q={{q}}',
-  },
-  {
-    icon: icon.github,
-    name: 'Github',
-    template: 'https://github.com/search?q={{q}}&ref=opensearch',
-  },
-  {
-    icon: icon.npmjs,
-    name: 'npmjs',
-    template: 'https://www.npmjs.com/search?q={{q}}',
-  },
-]
-
-const ProviderQuickPickItems: SearchItem[] = searchProviders.map((provider) => {
-  return {
-    iconPath: provider.icon ? vscode.Uri.parse(provider.icon) : new vscode.ThemeIcon('browser'),
-    label: provider.name,
-    provider,
-  }
-})
 
 interface SearchItem extends vscode.QuickPickItem {
   provider: SearchProvider
 }
 
 function search(value: string, provider: SearchProvider) {
-  const url = provider.template.replace(/{{q}}/g, encodeURIComponent(value))
-  vscode.env.openExternal(vscode.Uri.parse(url))
+  vscode.env.openExternal(vscode.Uri.parse(provider.url + encodeURIComponent(value)))
 }
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
+  const searchProviders: SearchProvider[] = await Promise.all(engines.map(async engine => ({
+    icon: await getDataUrl(engine.icon),
+    name: engine.name,
+    url: engine.url,
+  })))
+
+  const ProviderQuickPickItems: SearchItem[] = searchProviders.map((provider) => {
+    return {
+      iconPath: provider.icon ? vscode.Uri.parse(provider.icon) : new vscode.ThemeIcon('browser'),
+      label: provider.name,
+      provider,
+    }
+  })
   const disposable = vscode.commands.registerCommand(
     'fast-search.search',
     async () => {
