@@ -41,6 +41,14 @@
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish"
   },
+  "contributes": {
+    "commands":[
+      {
+        "command": "quick-search.search",
+        "title": "Quick Search"
+      }
+    ]
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "@antfu/ni": "^0.21.3",
