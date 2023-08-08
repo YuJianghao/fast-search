@@ -45,7 +45,15 @@
     "commands": [
       {
         "command": "fast-search.search",
-        "title": "Quick Search"
+        "title": "Let's Search",
+        "category": "Fast Search"
+      }
+    ],
+    "keybindings":[
+      {
+        "command": "fast-search.search",
+        "key": "ctrl+k ctrl+q",
+        "mac": "cmd+k cmd+q"
       }
     ]
   },
