@@ -7,7 +7,7 @@ function searchGoogle(input: string) {
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
-    'quick-search.search',
+    'fast-search.search',
     async () => {
       const input = await vscode.window.showInputBox({
         placeHolder: 'Search in Google',

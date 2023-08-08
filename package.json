@@ -1,20 +1,20 @@
 {
   "publisher": "winwin2011",
-  "name": "quick-search",
-  "displayName": "Quick Search",
+  "name": "fast-search",
+  "displayName": "Fast Search",
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@8.6.0",
   "description": "",
   "author": "Yu Jianghao <yjh2011@live.com>",
   "license": "MIT",
-  "homepage": "https://github.com/yujianghao/quick-search#readme",
+  "homepage": "https://github.com/yujianghao/fast-search#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yujianghao/quick-search"
+    "url": "https://github.com/yujianghao/fast-search"
   },
   "bugs": {
-    "url": "https://github.com/yujianghao/quick-search/issues"
+    "url": "https://github.com/yujianghao/fast-search/issues"
   },
   "categories": [
     "Other"
@@ -44,7 +44,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "quick-search.search",
+        "command": "fast-search.search",
         "title": "Quick Search"
       }
     ]
