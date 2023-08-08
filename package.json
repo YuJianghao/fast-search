@@ -77,6 +77,6 @@
   "dependencies": {
     "iconify-icon": "^1.0.8",
     "node-fetch": "^2.6.12",
-    "search-engine-collection": "^0.0.2"
+    "search-engine-collection": "^1.0.1"
   }
 }

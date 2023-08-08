@@ -15,8 +15,8 @@ importers:
         specifier: ^2.6.12
         version: 2.6.12
       search-engine-collection:
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^1.0.1
+        version: 1.0.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^0.39.5
@@ -3819,8 +3819,8 @@ packages:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: true
 
-  /search-engine-collection@0.0.2:
-    resolution: {integrity: sha512-nIt0GSe2UEqrgllYAgiY9c60vJDsgOj3hiAHdjF9SXaN+a0z9uHgFUYYjLpgshFGS4AdTj4pKTEBRKwQRoTXtA==}
+  /search-engine-collection@1.0.1:
+    resolution: {integrity: sha512-Z79mPYtWeWX9UfzC2RGJGDf6JRfbX24o63Xt6kurZNoJgylAd5FHOCbcJKRU4UXntGJWTBzchKqQn7CxIbundA==}
     dev: false
 
   /semver@5.7.1:
