@@ -1,6 +1,7 @@
 import engines from 'search-engine-collection'
 import * as vscode from 'vscode'
 import { getDataUrl } from './icon'
+import { google } from './google'
 
 interface SearchProvider {
   icon?: string
@@ -53,7 +54,7 @@ export async function activate(context: vscode.ExtensionContext) {
       quickPick.onDidAccept(async () => {
         const activeSearchItem = quickPick.activeItems[0]
         if (!activeSearchItem) {
-          search(quickPick.value, searchProviders[0])
+          search(quickPick.value, google)
         }
         else {
           const value = await vscode.window.showInputBox({
