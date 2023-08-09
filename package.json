@@ -2,7 +2,7 @@
   "publisher": "winwin2011",
   "name": "fast-search",
   "displayName": "Fast Search",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "private": true,
   "packageManager": "pnpm@8.6.0",
   "description": "Begin search within VSCode and continues in browser.",
