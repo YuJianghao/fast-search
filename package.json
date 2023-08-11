@@ -60,7 +60,7 @@
   "dependencies": {
     "iconify-icon": "^1.0.8",
     "node-fetch": "^2.6.12",
-    "search-engine-collection": "^1.0.1"
+    "search-engine-collection": "^1.2.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",

@@ -1,10 +1,9 @@
-import engines from 'search-engine-collection'
+import { engines } from 'search-engine-collection'
 import * as vscode from 'vscode'
-import { getDataUrl } from './icon'
 import { google } from './google'
 
 interface SearchProvider {
-  icon?: string
+  icon?: vscode.Uri | vscode.ThemeIcon
   name: string
   url: string
 }
@@ -18,24 +17,12 @@ function search(value: string, provider: SearchProvider) {
 }
 
 export async function activate(context: vscode.ExtensionContext) {
-  async function getIcon(icon: string) {
-    const key = `icon-${icon}`
-    if (!context.globalState.get(key)) {
-      const data = await getDataUrl(icon)
-      await context.globalState.update(key, data)
-    }
-    return await context.globalState.get(key) as string
-  }
-
-  // preload icons
-  engines.forEach(engine => getIcon(engine.icon))
-
   const disposable = vscode.commands.registerCommand(
     'fast-search.search',
     async () => {
       const searchProviders: SearchProvider[] = await Promise.all(engines.map(
         async engine => ({
-          icon: await getIcon(engine.icon),
+          icon: new vscode.ThemeIcon('browser'),
           name: engine.name,
           url: engine.url,
         }),
@@ -43,7 +30,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       const ProviderQuickPickItems: SearchItem[] = searchProviders.map((provider) => {
         return {
-          iconPath: provider.icon ? vscode.Uri.parse(provider.icon) : new vscode.ThemeIcon('browser'),
+          iconPath: provider.icon ?? new vscode.ThemeIcon('browser'),
           label: provider.name,
           provider,
         }
